@@ -30,7 +30,6 @@ create table Bier (
 create table Hersteller (
   HerstellerId integer identity,
   fk_StandortId integer,
-  fk_SorteId integer,
   SwissMade bit,
   Name varchar(50),
   primary key(HerstellerId)
@@ -46,7 +45,6 @@ create table Rezeptur (
 
 create table Sorte (
   SorteId integer identity,
-  fk_HerstellerId integer,
   Name varchar(50),
   primary key(SorteId)
 );
@@ -75,14 +73,16 @@ alter table Bier add
   foreign key(fk_HerstellerId) references Hersteller(HerstellerId),
   foreign key(fk_RezepturId) references Rezeptur(RezepturId);
 
-alter table Hersteller add
-  foreign key(fk_SorteId) references Sorte(SorteId),
-  foreign key(fk_StandortId) references Standort(StandortId);
-
-alter table Sorte add
-  foreign key(fk_HerstellerId) references Hersteller(HerstellerId);
-
 alter table SorteHersteller add
   foreign key(fk_SorteId) references Sorte(SorteId),
   foreign key(fk_HerstellerId) references Hersteller(HerstellerId);
+
+alter table Hersteller add
+  --foreign key(fk_SorteId) references SorteHersteller(SorteId),
+  foreign key(fk_StandortId) references Standort(StandortId);
+
+--alter table Sorte add
+  --foreign key(fk_HerstellerId) references SorteHersteller(HerstellerId);
+
+
 go

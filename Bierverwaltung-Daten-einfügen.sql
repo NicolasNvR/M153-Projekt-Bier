@@ -1,5 +1,5 @@
 --********************************************************************
--- Bierverwaltung: Skript zum Einfügen der Daten
+-- Bierverwaltung: Skript zum EinfÃ¼gen der Daten
 --********************************************************************
 
 ----------------------------------------------------------------------
@@ -9,7 +9,7 @@ use Bierverwaltung
 go
 
 ----------------------------------------------------------------------
--- Alle Daten der Tabellen löschen
+-- Alle Daten der Tabellen lÃ¶schen
 ----------------------------------------------------------------------
 delete from Bier;
 delete from SorteHersteller;
@@ -21,7 +21,7 @@ delete from Standort;
 go
 
 ----------------------------------------------------------------------
--- Identity zurücksetzen
+-- Identity zurÃ¼cksetzen
 ----------------------------------------------------------------------
 dbcc checkident(Bier, reseed, 0);
 dbcc checkident(Hersteller, reseed, 0);
@@ -33,7 +33,7 @@ go
 
 
 ----------------------------------------------------------------------
--- Rezeptur abfüllen
+-- Rezeptur abfÃ¼llen
 ----------------------------------------------------------------------
 INSERT INTO Rezeptur(Preis, Ablaufsdatum, Herstellungsdatum) 
 VALUES
@@ -61,35 +61,35 @@ VALUES
 go
 
 ----------------------------------------------------------------------
--- Standort abfüllen
+-- Standort abfÃ¼llen
 ----------------------------------------------------------------------
 INSERT INTO Standort (Strasse, PLZ, Ortschaft)
 VALUES
-    ('Musterstrasse 1', '8000', 'Zürich'),
+    ('Musterstrasse 1', '8000', 'ZÃ¼rich'),
     ('Hauptplatz 5', '3000', 'Bern'),
-    ('Bahnhofstrasse 10', '8001', 'Zürich'),
+    ('Bahnhofstrasse 10', '8001', 'ZÃ¼rich'),
     ('Marktgasse 2', '3011', 'Bern'),
     ('Rue du Lac 8', '1003', 'Lausanne'),
     ('Schlossberg 3', '9000', 'St. Gallen'),
     ('Seestrasse 20', '6004', 'Luzern'),
     ('Neugasse 15', '4001', 'Basel'),
-    ('Bergweg 12', '8002', 'Zürich'),
+    ('Bergweg 12', '8002', 'ZÃ¼rich'),
     ('Rathausplatz 7', '3012', 'Bern'),
     ('Avenue des Alpes 6', '1005', 'Lausanne'),
     ('Hauptstrasse 30', '9001', 'St. Gallen'),
-    ('Schifflände 1', '6005', 'Luzern'),
+    ('SchifflÃ¤nde 1', '6005', 'Luzern'),
     ('Spalenberg 8', '4002', 'Basel'),
-    ('Parkweg 3', '8003', 'Zürich'),
+    ('Parkweg 3', '8003', 'ZÃ¼rich'),
     ('Kornhausplatz 2', '3013', 'Bern'),
-    ('Rue de Genève 12', '1006', 'Lausanne'),
+    ('Rue de GenÃ¨ve 12', '1006', 'Lausanne'),
     ('Am See 5', '9002', 'St. Gallen'),
-    ('Mühlenplatz 10', '6006', 'Luzern'),
+    ('MÃ¼hlenplatz 10', '6006', 'Luzern'),
     ('Rheingasse 15', '4003', 'Basel')
 go
 
 
 ----------------------------------------------------------------------
--- Sorte Ort abfüllen
+-- Sorte Ort abfÃ¼llen
 ----------------------------------------------------------------------
 INSERT INTO Sorte (name) 
 VALUES 
@@ -116,12 +116,12 @@ VALUES
 go
 
 ----------------------------------------------------------------------
--- Hersteller Ort abfüllen
+-- Hersteller Ort abfÃ¼llen
 ----------------------------------------------------------------------
 INSERT INTO Hersteller (fk_StandortId, Swissmade, Name)
 VALUES
-	(13, 1, 'Feldschlösschen'),
-	(19, 1, 'Rugenbräu'),
+	(13, 1, 'Feldschloesschen'),
+	(19, 1, 'Rugenbraeu'),
 	(2, 0, 'BrewDog'),
 	(3, 1, 'Appenzeller'),
 	(4, 1, 'Schlossbrauerei Au'),
@@ -130,12 +130,12 @@ VALUES
 	(7, 1, 'Brauerei Falken'),
 	(12, 0, 'Heineken'),
 	(17, 1, 'Brauerei Locher'),
-	(20, 1, 'Feldschlösschen'),
+	(20, 1, 'Feldschloesschen'),
 	(9, 0, 'Molson Coors'),
 	(11, 1, 'Schlossbrauerei Utenberg'),
-	(15, 1, 'Brauerei Schützengarten'),
+	(15, 1, 'Brauerei Schuetzengarten'),
 	(10, 0, 'Carlsberg'),
-	(14, 1, 'Brauerei Wädenswil'),
+	(14, 1, 'Brauerei Waedenswil'),
 	(18, 1, 'Brauerei Baar'),
 	(5, 0, 'AB InBev'),
 	(16, 1, 'Calanda'),
@@ -144,7 +144,7 @@ go
 
 
 ----------------------------------------------------------------------
--- Bier Ort abfüllen
+-- Bier Ort abfÃ¼llen
 ----------------------------------------------------------------------
 INSERT INTO Bier (fk_SorteId, fk_RezepturId, fk_HerstellerId) 
 VALUES
@@ -181,7 +181,7 @@ go
 
 
 ----------------------------------------------------------------------
--- SorteHersteller abfüllen
+-- SorteHersteller abfÃ¼llen
 ----------------------------------------------------------------------
 INSERT INTO SorteHersteller (fk_SorteId, fk_HerstellerId)
 VALUES
